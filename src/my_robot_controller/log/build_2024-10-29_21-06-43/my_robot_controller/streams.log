@@ -1,0 +1,28 @@
+[0.599s] Invoking command in '/home/fazilashraf/ros2_ws/src/my_robot_controller/build/my_robot_controller': PYTHONPATH=/home/fazilashraf/ros2_ws/src/my_robot_controller/build/my_robot_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fazilashraf/ros2_ws/src/my_robot_controller/install/my_robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/fazilashraf/ros2_ws/src/my_robot_controller/build/my_robot_controller/build --no-deps symlink_data
+[0.790s] running develop
+[0.792s] /home/fazilashraf/.local/lib/python3.10/site-packages/setuptools/command/easy_install.py:156: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[0.792s]   warnings.warn(
+[0.894s] running egg_info
+[0.895s] creating my_robot_controller.egg-info
+[0.895s] writing my_robot_controller.egg-info/PKG-INFO
+[0.895s] writing dependency_links to my_robot_controller.egg-info/dependency_links.txt
+[0.895s] writing entry points to my_robot_controller.egg-info/entry_points.txt
+[0.895s] writing requirements to my_robot_controller.egg-info/requires.txt
+[0.895s] writing top-level names to my_robot_controller.egg-info/top_level.txt
+[0.895s] writing manifest file 'my_robot_controller.egg-info/SOURCES.txt'
+[0.897s] reading manifest file 'my_robot_controller.egg-info/SOURCES.txt'
+[0.897s] writing manifest file 'my_robot_controller.egg-info/SOURCES.txt'
+[0.898s] running build_ext
+[0.898s] Creating /home/fazilashraf/ros2_ws/src/my_robot_controller/install/my_robot_controller/lib/python3.10/site-packages/my-robot-controller.egg-link (link to .)
+[0.899s] Installing draw_circle script to /home/fazilashraf/ros2_ws/src/my_robot_controller/install/my_robot_controller/lib/my_robot_controller
+[0.899s] Installing pose_subscriber script to /home/fazilashraf/ros2_ws/src/my_robot_controller/install/my_robot_controller/lib/my_robot_controller
+[0.899s] Installing test_node script to /home/fazilashraf/ros2_ws/src/my_robot_controller/install/my_robot_controller/lib/my_robot_controller
+[0.899s] 
+[0.899s] Installed /home/fazilashraf/ros2_ws/src/my_robot_controller/build/my_robot_controller
+[0.900s] running symlink_data
+[0.900s] creating /home/fazilashraf/ros2_ws/src/my_robot_controller/install/my_robot_controller/share/ament_index
+[0.900s] creating /home/fazilashraf/ros2_ws/src/my_robot_controller/install/my_robot_controller/share/ament_index/resource_index
+[0.900s] creating /home/fazilashraf/ros2_ws/src/my_robot_controller/install/my_robot_controller/share/ament_index/resource_index/packages
+[0.900s] symbolically linking /home/fazilashraf/ros2_ws/src/my_robot_controller/build/my_robot_controller/resource/my_robot_controller -> /home/fazilashraf/ros2_ws/src/my_robot_controller/install/my_robot_controller/share/ament_index/resource_index/packages
+[0.900s] symbolically linking /home/fazilashraf/ros2_ws/src/my_robot_controller/build/my_robot_controller/package.xml -> /home/fazilashraf/ros2_ws/src/my_robot_controller/install/my_robot_controller/share/my_robot_controller
+[0.921s] Invoked command in '/home/fazilashraf/ros2_ws/src/my_robot_controller/build/my_robot_controller' returned '0': PYTHONPATH=/home/fazilashraf/ros2_ws/src/my_robot_controller/build/my_robot_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fazilashraf/ros2_ws/src/my_robot_controller/install/my_robot_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/fazilashraf/ros2_ws/src/my_robot_controller/build/my_robot_controller/build --no-deps symlink_data
