@@ -7,7 +7,7 @@
 ##### The questions we asked here is : 
 1. what is the left wheel position relative to he base of the robot and relative to another robot?
 
-It is solved mathematically formulated using robotics kinematics , per to say forward and reverse kinematics and Dynamics. TF2 package in ros2. 
+It is solved mathematically formulated using robotics kinematics , per to say forward and inverse kinematics and Dynamics. TF2 package in ros2. 
 
 ![[Untitled.jpg]]
 
