@@ -152,3 +152,13 @@ Launch the simulation using the provided launch file. The robot is configured wi
 
 https://github.com/se-buw/seav/blob/adi/task/hardware_interface%20and%20controller_simulation/Screenshot%202024-12-02%20213403.jpg
 
+
+References
+1. https://github.com/joshnewans/diffdrive_arduino
+2. ros2_demos, example 11
+3. ROS Developers Open Class n.186: Understand Ackermann 
+4. ROS Developers Open Class n.196: How to create Web Dashboards for ROS 2
+5. https://control.ros.org/rolling/index.html
+6. ros 2014 https://vimeopro.com/osrfoundation/roscon-2014/video/107507546
+
+
