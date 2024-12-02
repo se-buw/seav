@@ -1,0 +1,32 @@
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::CallbackReturn ros2_control_demo_example_11::CarlikeBotSystemHardware::on_init(const hardware_interface::HardwareInfo&)[m[K’:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:36:10:[m[K [01;31m[Kerror: [m[K‘[01m[Kvalidate_joint_interfaces[m[K’ was not declared in this scope
+   36 |     if (![01;31m[Kvalidate_joint_interfaces[m[K(joint))
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:[m[K In member function ‘[01m[Kvirtual std::vector<hardware_interface::StateInterface> ros2_control_demo_example_11::CarlikeBotSystemHardware::export_state_interfaces()[m[K’:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:66:3:[m[K [01;31m[Kerror: [m[K‘[01m[Klog_exported_interfaces[m[K’ was not declared in this scope
+   66 |   [01;31m[Klog_exported_interfaces[m[K("state", state_interfaces);
+      |   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:[m[K In member function ‘[01m[Kvirtual std::vector<hardware_interface::CommandInterface> ros2_control_demo_example_11::CarlikeBotSystemHardware::export_command_interfaces()[m[K’:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:82:3:[m[K [01;31m[Kerror: [m[K‘[01m[Klog_exported_interfaces[m[K’ was not declared in this scope
+   82 |   [01;31m[Klog_exported_interfaces[m[K("command", command_interfaces);
+      |   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:[m[K At global scope:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:143:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kbool ros2_control_demo_example_11::CarlikeBotSystemHardware::validate_joint_interfaces(const hardware_interface::ComponentInfo&)[m[K’
+  143 | bool [01;31m[KCarlikeBotSystemHardware[m[K::validate_joint_interfaces(const hardware_interface::ComponentInfo & joint)
+      |      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:143:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kbool ros2_control_demo_example_11::CarlikeBotSystemHardware::validate_joint_interfaces(const hardware_interface::ComponentInfo&)[m[K’
+In file included from [01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:1[m[K:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:59:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass ros2_control_demo_example_11::CarlikeBotSystemHardware[m[K’ defined here
+   59 | class [01;36m[KCarlikeBotSystemHardware[m[K : public hardware_interface::SystemInterface
+      |       [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:173:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid ros2_control_demo_example_11::CarlikeBotSystemHardware::log_exported_interfaces(const string&, const std::vector<BufferT>&)[m[K’
+  173 | void [01;31m[KCarlikeBotSystemHardware[m[K::log_exported_interfaces(
+      |      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:173:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid ros2_control_demo_example_11::CarlikeBotSystemHardware::log_exported_interfaces(const string&, const std::vector<BufferT>&)[m[K’
+In file included from [01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:1[m[K:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:59:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass ros2_control_demo_example_11::CarlikeBotSystemHardware[m[K’ defined here
+   59 | class [01;36m[KCarlikeBotSystemHardware[m[K : public hardware_interface::SystemInterface
+      |       [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/ros2_control_demo_example_11.dir/build.make:76: CMakeFiles/ros2_control_demo_example_11.dir/hardware/carlikebot_system.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/ros2_control_demo_example_11.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

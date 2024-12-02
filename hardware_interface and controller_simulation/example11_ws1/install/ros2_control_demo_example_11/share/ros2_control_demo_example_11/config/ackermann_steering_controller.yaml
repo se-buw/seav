@@ -1,0 +1,39 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 10  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    ackermann_steering_controller:
+      type: ackermann_steering_controller/AckermannSteeringController
+
+ackermann_steering_controller:
+  ros__parameters:
+    # Robot dimensions
+    wheelbase: 0.325
+    front_wheel_separation: 0.408  # Adjust based on your URDF
+    rear_wheel_separation: 0.408  # Adjust based on your URDF
+    wheel_radius: 0.05
+
+    # Joint names
+    rear_wheels_names: ['virtual_rear_wheel_joint']
+    steering_joints: ['virtual_front_wheel_joint']
+    front_wheels_names: []  # Leave empty if no front rolling joints
+
+    # Frames
+    base_frame_id: base_link
+    odom_frame_id: odom
+    enable_odom_tf: true
+
+    # Feedback and behavior
+    open_loop: false
+    position_feedback: false
+    velocity_rolling_window_size: 10
+
+    # Covariance matrices
+    twist_covariance_diagonal: [0.0, 7.0, 14.0, 21.0, 28.0, 35.0]
+    pose_covariance_diagonal: [0.0, 7.0, 14.0, 21.0, 28.0, 35.0]
+
+    # Timeout for commands
+    reference_timeout: 2.0

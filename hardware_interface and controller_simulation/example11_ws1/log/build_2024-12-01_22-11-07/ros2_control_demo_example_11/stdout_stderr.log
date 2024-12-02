@@ -1,0 +1,15 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/ros2_control_demo_example_11.dir/hardware/carlikebot_system.cpp.o[0m
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::CallbackReturn ros2_control_demo_example_11::CarlikeBotSystemHardware::on_init(const hardware_interface::HardwareInfo&)[m[K’:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:158:1:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator=[m[K’ (operand types are ‘[01m[Kstd::map<std::__cxx11::basic_string<char>, ros2_control_demo_example_11::Joint>::mapped_type[m[K’ {aka ‘[01m[Kros2_control_demo_example_11::Joint[m[K’} and ‘[01m[K<brace-enclosed initializer list>[m[K’)
+  158 | [01;31m[K}[m[K;
+      | [01;31m[K^[m[K
+In file included from [01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:15[m[K:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:45:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kros2_control_demo_example_11::Joint& ros2_control_demo_example_11::Joint::operator=(const ros2_control_demo_example_11::Joint&)[m[K’
+   45 | struct [01;36m[KJoint[m[K
+      |        [01;36m[K^~~~~[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:45:8:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kconst ros2_control_demo_example_11::Joint&[m[K’
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:45:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kros2_control_demo_example_11::Joint& ros2_control_demo_example_11::Joint::operator=(ros2_control_demo_example_11::Joint&&)[m[K’
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:45:8:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[K<brace-enclosed initializer list>[m[K’ to ‘[01m[Kros2_control_demo_example_11::Joint&&[m[K’
+gmake[2]: *** [CMakeFiles/ros2_control_demo_example_11.dir/build.make:76: CMakeFiles/ros2_control_demo_example_11.dir/hardware/carlikebot_system.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/ros2_control_demo_example_11.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

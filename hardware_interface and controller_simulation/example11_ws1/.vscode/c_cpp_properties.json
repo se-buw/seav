@@ -1,0 +1,38 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/user/testing/example11_ws1/install/ros2_control_demo_example_11/include/**",
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_example_9/include/**",
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_example_8/include/**",
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_example_7/include/**",
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_example_6/include/**",
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_example_5/include/**",
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_example_4/include/**",
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_example_3/include/**",
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_example_2/include/**",
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_example_14/include/**",
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_example_12/include/**",
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_example_11/include/**",
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_example_10/include/**",
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_example_1/include/**",
+        "/home/user/workspace_world/ws_2/install/ros2_control_demo_example_2/include/**",
+        "/home/user/turtlebot3_ws/install/turtlebot3_gazebo/include/**",
+        "/home/user/turtlebot3_ws/install/turtlebot3_fake_node/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/user/testing/example11_ws1/src/my_robot_hardware_interface/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

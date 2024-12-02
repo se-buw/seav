@@ -1,0 +1,65 @@
+In file included from [01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:1[m[K:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:81:40:[m[K [01;31m[Kerror: [m[K‘[01m[Khardware_interface[m[K’ does not name a type
+   81 |   bool validate_joint_interfaces(const [01;31m[Khardware_interface[m[K:ComponentInfo & joint);
+      |                                        [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:81:58:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K...[m[K’ before ‘[01m[K:[m[K’ token
+   81 |   bool validate_joint_interfaces(const hardware_interface[01;31m[K:[m[KComponentInfo & joint);
+      |                                                          [01;31m[K^[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:[m[K In member function ‘[01m[Kvirtual hardware_interface::CallbackReturn ros2_control_demo_example_11::CarlikeBotSystemHardware::on_init(const hardware_interface::HardwareInfo&)[m[K’:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:36:36:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kconst hardware_interface::ComponentInfo[m[K’ to ‘[01m[Kint[m[K’
+   36 |     if (!validate_joint_interfaces([01;31m[Kjoint[m[K))
+      |                                    [01;31m[K^~~~~[m[K
+      |                                    [01;31m[K|[m[K
+      |                                    [01;31m[Kconst hardware_interface::ComponentInfo[m[K
+In file included from [01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:1[m[K:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:81:34:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kbool ros2_control_demo_example_11::CarlikeBotSystemHardware::validate_joint_interfaces(int)[m[K’
+   81 |   bool validate_joint_interfaces([01;36m[Kconst hardware_interface[m[K:ComponentInfo & joint);
+      |                                  [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:[m[K In member function ‘[01m[Kvirtual std::vector<hardware_interface::StateInterface> ros2_control_demo_example_11::CarlikeBotSystemHardware::export_state_interfaces()[m[K’:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:56:103:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[Kconst double*[m[K’ to ‘[01m[Kdouble*[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+   56 | hardware_interface::StateInterface(joint.second.joint_name, hardware_interface::HW_IF_POSITION, [01;31m[K&joint.second.state.position[m[K));
+      |                                                                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                                                                 [01;31m[K|[m[K
+      |                                                                                                 [01;31m[Kconst double*[m[K
+
+In file included from [01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:23[m[K,
+                 from [01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/hardware_interface/handle.hpp:123:25:[m[K [01;36m[Knote: [m[K  initializing argument 3 of ‘[01m[Khardware_interface::StateInterface::StateInterface(const string&, const string&, double*) [inherited from hardware_interface::ReadOnlyHandle][m[K’
+  123 |   using ReadOnlyHandle::[01;36m[KReadOnlyHandle[m[K;
+      |                         [01;36m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:60:105:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[Kconst double*[m[K’ to ‘[01m[Kdouble*[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+   60 | hardware_interface::StateInterface(joint.second.joint_name, hardware_interface::HW_IF_VELOCITY, [01;31m[K&joint.second.state.velocity[m[K));
+      |                                                                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                                                                 [01;31m[K|[m[K
+      |                                                                                                 [01;31m[Kconst double*[m[K
+
+In file included from [01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:23[m[K,
+                 from [01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/hardware_interface/handle.hpp:123:25:[m[K [01;36m[Knote: [m[K  initializing argument 3 of ‘[01m[Khardware_interface::StateInterface::StateInterface(const string&, const string&, double*) [inherited from hardware_interface::ReadOnlyHandle][m[K’
+  123 |   using ReadOnlyHandle::[01;36m[KReadOnlyHandle[m[K;
+      |                         [01;36m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:[m[K In member function ‘[01m[Kvirtual std::vector<hardware_interface::CommandInterface> ros2_control_demo_example_11::CarlikeBotSystemHardware::export_command_interfaces()[m[K’:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:76:35:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[Kconst double*[m[K’ to ‘[01m[Kdouble*[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+   76 |         [01;31m[Kjoint.first == "steering" ? &joint.second.command.position : &joint.second.command.velocity[m[K));
+      |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                   [01;31m[K|[m[K
+      |                                   [01;31m[Kconst double*[m[K
+In file included from [01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:23[m[K,
+                 from [01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/hardware_interface/handle.hpp:139:26:[m[K [01;36m[Knote: [m[K  initializing argument 3 of ‘[01m[Khardware_interface::CommandInterface::CommandInterface(const string&, const string&, double*) [inherited from hardware_interface::ReadWriteHandle][m[K’
+  139 |   using ReadWriteHandle::[01;36m[KReadWriteHandle[m[K;
+      |                          [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:[m[K At global scope:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:138:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kbool ros2_control_demo_example_11::CarlikeBotSystemHardware::validate_joint_interfaces(const hardware_interface::ComponentInfo&)[m[K’
+  138 | bool [01;31m[KCarlikeBotSystemHardware[m[K::validate_joint_interfaces(const hardware_interface::ComponentInfo & joint)
+      |      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/user/testing/example11_ws1/src/example_11/hardware/carlikebot_system.cpp:1[m[K:
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:81:8:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kbool ros2_control_demo_example_11::CarlikeBotSystemHardware::validate_joint_interfaces(int)[m[K’
+   81 |   bool [01;36m[Kvalidate_joint_interfaces[m[K(const hardware_interface:ComponentInfo & joint);
+      |        [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/user/testing/example11_ws1/src/example_11/hardware/include/ros2_control_demo_example_11/carlikebot_system.hpp:57:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass ros2_control_demo_example_11::CarlikeBotSystemHardware[m[K’ defined here
+   57 | class [01;36m[KCarlikeBotSystemHardware[m[K : public hardware_interface::SystemInterface
+      |       [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/ros2_control_demo_example_11.dir/build.make:76: CMakeFiles/ros2_control_demo_example_11.dir/hardware/carlikebot_system.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/ros2_control_demo_example_11.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,80 @@
+[0.024s] Invoking command in '/home/user/testing/example11_ws1/build/ros2_control_demo_example_11': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace_world/ws_1/install/ros2_control_demo_testing:/home/user/ros2_ws/install/workspace_mapping:/home/user/ros2_ws/install/my_robot_controller:/home/user/ros2_ws/install/fake_imu_package:/home/user/turtlebot3_ws/install/turtlebot3_teleop:/home/user/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake /home/user/testing/example11_ws1/src/example_11 -DCMAKE_INSTALL_PREFIX=/home/user/testing/example11_ws1/install/ros2_control_demo_example_11
+[0.247s] -- The CXX compiler identification is GNU 11.4.0
+[0.809s] -- Detecting CXX compiler ABI info
+[1.050s] -- Detecting CXX compiler ABI info - done
+[1.058s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.058s] -- Detecting CXX compile features
+[1.059s] -- Detecting CXX compile features - done
+[1.071s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.240s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.402s] -- Found hardware_interface: 2.43.1 (/opt/ros/humble/share/hardware_interface/cmake)
+[1.721s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.735s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.752s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.776s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.808s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.077s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[4.088s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[4.146s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[4.170s] -- Looking for C++ include pthread.h
+[4.393s] -- Looking for C++ include pthread.h - found
+[4.394s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[4.638s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[4.639s] -- Found Threads: TRUE  
+[4.732s] -- Found ament_cmake_pytest: 1.3.10 (/opt/ros/humble/share/ament_cmake_pytest/cmake)
+[6.020s] -- Configuring done
+[6.063s] -- Generating done
+[6.064s] -- Build files have been written to: /home/user/testing/example11_ws1/build/ros2_control_demo_example_11
+[6.075s] Invoked command in '/home/user/testing/example11_ws1/build/ros2_control_demo_example_11' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace_world/ws_1/install/ros2_control_demo_testing:/home/user/ros2_ws/install/workspace_mapping:/home/user/ros2_ws/install/my_robot_controller:/home/user/ros2_ws/install/fake_imu_package:/home/user/turtlebot3_ws/install/turtlebot3_teleop:/home/user/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake /home/user/testing/example11_ws1/src/example_11 -DCMAKE_INSTALL_PREFIX=/home/user/testing/example11_ws1/install/ros2_control_demo_example_11
+[6.077s] Invoking command in '/home/user/testing/example11_ws1/build/ros2_control_demo_example_11': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace_world/ws_1/install/ros2_control_demo_testing:/home/user/ros2_ws/install/workspace_mapping:/home/user/ros2_ws/install/my_robot_controller:/home/user/ros2_ws/install/fake_imu_package:/home/user/turtlebot3_ws/install/turtlebot3_teleop:/home/user/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --build /home/user/testing/example11_ws1/build/ros2_control_demo_example_11 -- -j8 -l8
+[6.143s] [ 50%] [32mBuilding CXX object CMakeFiles/ros2_control_demo_example_11.dir/hardware/carlikebot_system.cpp.o[0m
+[12.468s] [100%] [32m[1mLinking CXX shared library libros2_control_demo_example_11.so[0m
+[12.850s] [100%] Built target ros2_control_demo_example_11
+[12.863s] Invoked command in '/home/user/testing/example11_ws1/build/ros2_control_demo_example_11' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace_world/ws_1/install/ros2_control_demo_testing:/home/user/ros2_ws/install/workspace_mapping:/home/user/ros2_ws/install/my_robot_controller:/home/user/ros2_ws/install/fake_imu_package:/home/user/turtlebot3_ws/install/turtlebot3_teleop:/home/user/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --build /home/user/testing/example11_ws1/build/ros2_control_demo_example_11 -- -j8 -l8
+[12.902s] Invoking command in '/home/user/testing/example11_ws1/build/ros2_control_demo_example_11': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace_world/ws_1/install/ros2_control_demo_testing:/home/user/ros2_ws/install/workspace_mapping:/home/user/ros2_ws/install/my_robot_controller:/home/user/ros2_ws/install/fake_imu_package:/home/user/turtlebot3_ws/install/turtlebot3_teleop:/home/user/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --install /home/user/testing/example11_ws1/build/ros2_control_demo_example_11
+[12.910s] -- Install configuration: ""
+[12.911s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/ros2_control_demo_example_11.xml
+[12.911s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/include/ros2_control_demo_example_11
+[12.911s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/include/ros2_control_demo_example_11/ros2_control_demo_example_11
+[12.912s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/include/ros2_control_demo_example_11/ros2_control_demo_example_11/carlikebot_system.hpp
+[12.912s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/include/ros2_control_demo_example_11/ros2_control_demo_example_11/carlikebot_system.hpp:Zone.Identifier
+[12.912s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/launch
+[12.913s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/launch/view_robot.launch.py:Zone.Identifier
+[12.913s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/launch/view_robot.launch.py
+[12.913s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/ros2_control
+[12.913s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/ros2_control/carlikebot.ros2_control.xacro
+[12.914s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/ros2_control/carlikebot.ros2_control.xacro:Zone.Identifier
+[12.914s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/urdf
+[12.914s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/urdf/carlikebot.urdf.xacro:Zone.Identifier
+[12.914s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/urdf/carlikebot.urdf.xacro
+[12.915s] -- Up-to-date: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/launch
+[12.915s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/launch/carlikebot.launch.py:Zone.Identifier
+[12.915s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/launch/carlikebot.launch.py
+[12.915s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/config
+[12.915s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/config/carlikebot_controllers.yaml
+[12.915s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/config/carlikebot_controllers.yaml:Zone.Identifier
+[12.915s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/lib/libros2_control_demo_example_11.so
+[12.916s] -- Set runtime path of "/home/user/testing/example11_ws1/install/ros2_control_demo_example_11/lib/libros2_control_demo_example_11.so" to ""
+[12.917s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/environment/library_path.sh
+[12.917s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/environment/library_path.dsv
+[12.917s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ament_index/resource_index/package_run_dependencies/ros2_control_demo_example_11
+[12.918s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ament_index/resource_index/parent_prefix_path/ros2_control_demo_example_11
+[12.918s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/environment/ament_prefix_path.sh
+[12.918s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/environment/ament_prefix_path.dsv
+[12.919s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/environment/path.sh
+[12.919s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/environment/path.dsv
+[12.919s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/local_setup.bash
+[12.919s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/local_setup.sh
+[12.919s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/local_setup.zsh
+[12.920s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/local_setup.dsv
+[12.920s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/package.dsv
+[12.920s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ament_index/resource_index/packages/ros2_control_demo_example_11
+[12.920s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/ros2_control_demo_example_11
+[12.920s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/cmake/export_ros2_control_demo_example_11Export.cmake
+[12.920s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/cmake/export_ros2_control_demo_example_11Export-noconfig.cmake
+[12.921s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/cmake/ament_cmake_export_targets-extras.cmake
+[12.921s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/cmake/ament_cmake_export_dependencies-extras.cmake
+[12.921s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/cmake/ros2_control_demo_example_11Config.cmake
+[12.921s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/cmake/ros2_control_demo_example_11Config-version.cmake
+[12.921s] -- Installing: /home/user/testing/example11_ws1/install/ros2_control_demo_example_11/share/ros2_control_demo_example_11/package.xml
+[12.923s] Invoked command in '/home/user/testing/example11_ws1/build/ros2_control_demo_example_11' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/user/workspace_world/ws_1/install/ros2_control_demo_testing:/home/user/ros2_ws/install/workspace_mapping:/home/user/ros2_ws/install/my_robot_controller:/home/user/ros2_ws/install/fake_imu_package:/home/user/turtlebot3_ws/install/turtlebot3_teleop:/home/user/turtlebot3_ws/install/turtlebot3_example:/opt/ros/humble /usr/bin/cmake --install /home/user/testing/example11_ws1/build/ros2_control_demo_example_11

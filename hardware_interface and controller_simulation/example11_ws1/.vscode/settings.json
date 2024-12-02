@@ -1,0 +1,22 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_testing/lib/python3.10/site-packages",
+        "/home/user/ros2_ws/install/workspace_mapping/lib/python3.10/site-packages",
+        "/home/user/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages",
+        "/home/user/ros2_ws/install/fake_imu_package/lib/python3.10/site-packages",
+        "/home/user/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.10/site-packages",
+        "/home/user/turtlebot3_ws/install/turtlebot3_example/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/user/workspace_world/ws_1/install/ros2_control_demo_testing/lib/python3.10/site-packages",
+        "/home/user/ros2_ws/install/workspace_mapping/lib/python3.10/site-packages",
+        "/home/user/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages",
+        "/home/user/ros2_ws/install/fake_imu_package/lib/python3.10/site-packages",
+        "/home/user/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.10/site-packages",
+        "/home/user/turtlebot3_ws/install/turtlebot3_example/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
