@@ -1,0 +1,698 @@
+[controller_server-1] [INFO] [1734552603.108460904] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Could not find a connection between 'map' and 'base_footprint' because they are not part of the same tree.Tf has two or more unconnected trees.
+[controller_server-1] [INFO] [1734552603.608469726] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Could not find a connection between 'map' and 'base_footprint' because they are not part of the same tree.Tf has two or more unconnected trees.
+[controller_server-1] [INFO] [1734552604.108389158] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Could not find a connection between 'map' and 'base_footprint' because they are not part of the same tree.Tf has two or more unconnected trees.
+[controller_server-1] [INFO] [1734552604.608419777] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Could not find a connection between 'map' and 'base_footprint' because they are not part of the same tree.Tf has two or more unconnected trees.
+[controller_server-1] [INFO] [1734552605.108496509] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Could not find a connection between 'map' and 'base_footprint' because they are not part of the same tree.Tf has two or more unconnected trees.
+[controller_server-1] [INFO] [1734552605.608390143] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Could not find a connection between 'map' and 'base_footprint' because they are not part of the same tree.Tf has two or more unconnected trees.
+[controller_server-1] [INFO] [1734552606.108400557] [local_costmap.local_costmap]: Timed out waiting for transform from base_footprint to map to become available, tf error: Could not find a connection between 'map' and 'base_footprint' because they are not part of the same tree.Tf has two or more unconnected trees.
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="my_robot">
+
+  <!-- Base Footprint -->
+  <link name="base_footprint"/>
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.5 0.3 0.1"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+  
+  <!-- Laser Frame -->
+  <link name="laser">
+    <visual>
+      <geometry>
+        <cylinder radius="0.05" length="0.1"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <!-- IMU Frame -->
+  <link name="imu_link"/>
+
+  <!-- Fixed Joint: base_footprint to base_link -->
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Fixed Joint: base_link to laser -->
+  <joint name="laser_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="laser"/>
+    <origin xyz="0.2 0 0.3" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Fixed Joint: base_link to imu_link -->
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0 0 0.3" rpy="0 0 0"/>
+  </joint>
+</robot>
+
+from launch import LaunchDescription
+from launch_ros.actions import Node
+from launch.actions import ExecuteProcess
+import os
+
+def generate_launch_description():
+    # Get package path
+    package_path = os.path.join(os.getcwd(), 'src', 'my_robot_description')
+
+    return LaunchDescription([
+        # Robot State Publisher: Loads the URDF and publishes TFs
+        Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            output='screen',
+            parameters=[{'robot_description': open(package_path + '/urdf/robot.urdf.xacro').read()}]
+        ),
+
+        # Static Transform Publisher for map -> odom (temporary)
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'],
+            name='map_to_odom'
+        )
+    ])
+    
+    
+    
+    seav@seav-desktop:~/Downloads/delete/ros2_ws$ ros2 launch my_robot_description ekf_launch.py 
+[INFO] [launch]: All log files can be found below /home/seav/.ros/log/2024-12-18-22-29-44-719339-seav-desktop-11837
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [ekf_node-1]: process started with pid [11839]
+[ekf_node-1] [ERROR] [1734557385.116927823] [rcl]: Failed to parse global arguments
+[ekf_node-1] terminate called after throwing an instance of 'rclcpp::exceptions::RCLInvalidROSArgsError'
+[ekf_node-1]   what():  failed to initialize rcl: Couldn't parse params file: '--params-file src/my_robot_description/ekf.yaml'. Error: Cannot have a value before ros__parameters at line 1, at ./src/parse.c:793, at ./src/rcl/arguments.c:406
+[ERROR] [ekf_node-1]: process has died [pid 11839, exit code -6, cmd '/opt/ros/humble/lib/robot_localization/ekf_node --ros-args -r __node:=ekf_filter_node --params-file src/my_robot_description/ekf.yaml'].
+
+/**:
+  ros__parameters:
+    frequency: 30.0
+    two_d_mode: true
+    publish_tf: true
+
+    # Frames
+    odom_frame: odom
+    base_link_frame: base_footprint
+    world_frame: odom
+
+    # Input sources
+    odom0: /odom
+    imu0: /imu/data
+    odom0_config: [true, true, false,  # X, Y, Z
+                   false, false, true, # Roll, Pitch, Yaw
+                   true, true, false,  # Vx, Vy, Vz
+                   false, false, true, # Vroll, Vpitch, Vyaw
+                   false, false, false] # Ax, Ay, Az
+    imu0_config: [false, false, false, # X, Y, Z
+                  true, true, true,    # Roll, Pitch, Yaw
+                  false, false, false, # Vx, Vy, Vz
+                  true, true, true,    # Vroll, Vpitch, Vyaw
+                  false, false, false] # Ax, Ay, Az
+
+    imu0_differential: false
+    imu0_remove_gravitational_acceleration: true
+
+from launch import LaunchDescription
+from launch_ros.actions import Node
+import os
+
+def generate_launch_description():
+    pkg_dir = os.path.join(os.getcwd(), 'src', 'my_robot_description')
+    ekf_config = os.path.join(pkg_dir, 'ekf.yaml')
+
+    return LaunchDescription([
+        Node(
+            package='robot_localization',
+            executable='ekf_node',
+            name='ekf_filter_node',
+            output='screen',
+            parameters=[ekf_config]
+        )
+    ])
+    
+    
+[planner_server-3] [WARN] [1734558865.420604086] [global_costmap.global_costmap]: Can't update static costmap layer, no map received
+
+[controller_server-2] [DEBUG] [1734559259.771856354] [rcl]: Timer canceled
+[controller_server-2] [DEBUG] [1734559259.771887502] [rcl]: Timer canceled
+
+
+amcl:
+  ros__parameters:
+    use_sim_time: false
+    alpha1: 0.2
+    alpha2: 0.2
+    alpha3: 0.2
+    alpha4: 0.2
+    alpha5: 0.2
+    base_frame_id: "base_footprint"
+    beam_skip_distance: 0.5
+    beam_skip_error_threshold: 0.9
+    beam_skip_threshold: 0.3
+    do_beamskip: false
+    global_frame_id: "map"
+    lambda_short: 0.1
+    laser_likelihood_max_dist: 2.0
+    laser_max_range: 100.0
+    laser_min_range: -1.0
+    laser_model_type: "likelihood_field"
+    max_beams: 60
+    max_particles: 2000
+    min_particles: 500
+    odom_frame_id: "odom"
+    pf_err: 0.05
+    pf_z: 0.99
+    recovery_alpha_fast: 0.0
+    recovery_alpha_slow: 0.0
+    resample_interval: 1
+    robot_model_type: "nav2_amcl::DifferentialMotionModel"
+    save_pose_rate: 0.5
+    sigma_hit: 0.2
+    tf_broadcast: true
+    transform_tolerance: 1.0
+    update_min_a: 0.2
+    update_min_d: 0.25
+    z_hit: 0.5
+    z_max: 0.05
+    z_rand: 0.5
+    z_short: 0.05
+    scan_topic: scan
+
+amcl_map_client:
+  ros__parameters:
+    use_sim_time: True
+
+amcl_rclcpp_node:
+  ros__parameters:
+    use_sim_time: True
+
+bt_navigator:
+  ros__parameters:
+    use_sim_time: Flase
+    global_frame: map
+    robot_base_frame: base_link
+    odom_topic: /odom
+    enable_groot_monitoring: True
+    groot_zmq_publisher_port: 1666
+    groot_zmq_server_port: 1667
+    default_bt_xml_filename: "navigate_w_replanning_and_recovery.xml"
+    plugin_lib_names:
+    - nav2_compute_path_to_pose_action_bt_node
+    - nav2_follow_path_action_bt_node
+    - nav2_back_up_action_bt_node
+    - nav2_spin_action_bt_node
+    - nav2_wait_action_bt_node
+    - nav2_clear_costmap_service_bt_node
+    - nav2_is_stuck_condition_bt_node
+    - nav2_goal_reached_condition_bt_node
+    - nav2_goal_updated_condition_bt_node
+    - nav2_initial_pose_received_condition_bt_node
+    - nav2_reinitialize_global_localization_service_bt_node
+    - nav2_rate_controller_bt_node
+    - nav2_distance_controller_bt_node
+    - nav2_speed_controller_bt_node
+    - nav2_truncate_path_action_bt_node
+    - nav2_goal_updater_node_bt_node
+    - nav2_recovery_node_bt_node
+    - nav2_pipeline_sequence_bt_node
+    - nav2_round_robin_node_bt_node
+    - nav2_transform_available_condition_bt_node
+    - nav2_time_expired_condition_bt_node
+    - nav2_distance_traveled_condition_bt_node
+
+bt_navigator_rclcpp_node:
+  ros__parameters:
+    use_sim_time: False
+
+controller_server:
+  ros__parameters:
+    use_sim_time: False
+    controller_frequency: 20.0
+    min_x_velocity_threshold: 0.001
+    min_y_velocity_threshold: 0.5
+    min_theta_velocity_threshold: 0.001
+    progress_checker_plugin: "progress_checker"
+    goal_checker_plugin: "goal_checker"
+    controller_plugins: ["FollowPath"]
+
+    # Progress checker parameters
+    progress_checker:
+      plugin: "nav2_controller::SimpleProgressChecker"
+      required_movement_radius: 0.5
+      movement_time_allowance: 10.0
+    # Goal checker parameters
+    goal_checker:
+      plugin: "nav2_controller::SimpleGoalChecker"
+      xy_goal_tolerance: 0.25
+      yaw_goal_tolerance: 0.25
+      stateful: True
+    # DWB parameters
+    FollowPath:
+      plugin: "dwb_core::DWBLocalPlanner"
+      debug_trajectory_details: True
+      min_vel_x: 0.0
+      min_vel_y: 0.0
+      max_vel_x: 0.26
+      max_vel_y: 0.0
+      max_vel_theta: 1.0
+      min_speed_xy: 0.0
+      max_speed_xy: 0.26
+      min_speed_theta: 0.0
+      # Add high threshold velocity for turtlebot 3 issue.
+      # https://github.com/ROBOTIS-GIT/turtlebot3_simulations/issues/75
+      acc_lim_x: 2.5
+      acc_lim_y: 0.0
+      acc_lim_theta: 3.2
+      decel_lim_x: -2.5
+      decel_lim_y: 0.0
+      decel_lim_theta: -3.2
+      vx_samples: 20
+      vy_samples: 5
+      vtheta_samples: 20
+      sim_time: 1.7
+      linear_granularity: 0.05
+      angular_granularity: 0.025
+      transform_tolerance: 0.2
+      xy_goal_tolerance: 0.25
+      trans_stopped_velocity: 0.25
+      short_circuit_trajectory_evaluation: True
+      stateful: True
+      critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
+      BaseObstacle.scale: 0.02
+      PathAlign.scale: 32.0
+      PathAlign.forward_point_distance: 0.1
+      GoalAlign.scale: 24.0
+      GoalAlign.forward_point_distance: 0.1
+      PathDist.scale: 32.0
+      GoalDist.scale: 24.0
+      RotateToGoal.scale: 32.0
+      RotateToGoal.slowing_factor: 5.0
+      RotateToGoal.lookahead_time: -1.0
+
+controller_server_rclcpp_node:
+  ros__parameters:
+    use_sim_time: True
+
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      update_frequency: 5.0
+      publish_frequency: 2.0
+      global_frame: odom
+      robot_base_frame: base_link
+      use_sim_time: True
+      rolling_window: true
+      width: 3
+      height: 3
+      resolution: 0.05
+      robot_radius: 0.22
+      plugins: ["voxel_layer", "inflation_layer"]
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 3.0
+        inflation_radius: 0.55
+      voxel_layer:
+        plugin: "nav2_costmap_2d::VoxelLayer"
+        enabled: True
+        publish_voxel_map: True
+        origin_z: 0.0
+        z_resolution: 0.05
+        z_voxels: 16
+        max_obstacle_height: 2.0
+        mark_threshold: 0
+        observation_sources: scan
+        scan:
+          topic: /scan
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+      static_layer:
+        map_subscribe_transient_local: True
+      always_send_full_costmap: True
+  local_costmap_client:
+    ros__parameters:
+      use_sim_time: True
+  local_costmap_rclcpp_node:
+    ros__parameters:
+      use_sim_time: True
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      update_frequency: 1.0
+      publish_frequency: 1.0
+      global_frame: map
+      robot_base_frame: base_link
+      use_sim_time: True
+      robot_radius: 0.22
+      resolution: 0.05
+      track_unknown_space: true
+      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: True
+        observation_sources: scan
+        scan:
+          topic: /scan
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_subscribe_transient_local: True
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 3.0
+        inflation_radius: 0.55
+      always_send_full_costmap: True
+  global_costmap_client:
+    ros__parameters:
+      use_sim_time: True
+  global_costmap_rclcpp_node:
+    ros__parameters:
+      use_sim_time: True
+
+map_server:
+  ros__parameters:
+    use_sim_time: True
+    yaml_filename: "turtlebot3_world.yaml"
+
+map_saver:
+  ros__parameters:
+    use_sim_time: True
+    save_map_timeout: 5000
+    free_thresh_default: 0.25
+    occupied_thresh_default: 0.65
+    map_subscribe_transient_local: False
+
+planner_server:
+  ros__parameters:
+    expected_planner_frequency: 20.0
+    use_sim_time: True
+    planner_plugins: ["GridBased"]
+    GridBased:
+      plugin: "nav2_navfn_planner/NavfnPlanner"
+      tolerance: 0.5
+      use_astar: false
+      allow_unknown: true
+
+planner_server_rclcpp_node:
+  ros__parameters:
+    use_sim_time: True
+
+recoveries_server:
+  ros__parameters:
+    costmap_topic: local_costmap/costmap_raw
+    footprint_topic: local_costmap/published_footprint
+    cycle_frequency: 10.0
+    recovery_plugins: ["spin", "back_up", "wait"]
+    spin:
+      plugin: "nav2_behaviors/SpinBehavior"
+    back_up:
+      plugin: "nav2_behaviors/BackUpBehavior"
+    wait:
+      plugin: "nav2_behaviors/WaitBehavior"
+    global_frame: odom
+    robot_base_frame: base_link
+    transform_timeout: 0.1
+    use_sim_time: true
+    simulate_ahead_time: 2.0
+    max_rotational_vel: 1.0
+    min_rotational_vel: 0.4
+    rotational_acc_lim: 3.2
+
+robot_state_publisher:
+  ros__parameters:
+    use_sim_time: True
+ros2 action send_goal /compute_path_to_pose nav2_msgs/action/ComputePathToPose \
+  "{start: {header: {frame_id: 'map'}, pose: {position: {x: 0.0, y: 0.0, z: 0.0}, orientation: {z: 0.0, w: 1.0}}}, \
+    goal: {header: {frame_id: 'map'}, pose: {position: {x: 1.0, y: 1.0, z: 0.0}, orientation: {z: 0.0, w: 1.0}}}}"Cseav@seav-desktop:~/ros2_ws$ ros2 action send_goal /compute_path_to_pose nav2_msgs/action/ComputePathToPose   "{start: {header: {frame_id: 'map'}, pose: {position: {x: 0.0, y: 0.0, z: 0.0}, orientation: {z: 0.0, w: 1.0}}}, \
+    goal: {header: {frame_id: 'map'}, pose: {position: {x: 1.0, y: 1.0, z: 0.0}, orientation: {z: 0.0, w: 1.0}}}}"
+Waiting for an action server to become available...
+Sending goal:
+     goal:
+  header:
+    stamp:
+      sec: 0
+      nanosec: 0
+    frame_id: map
+  pose:
+    position:
+      x: 1.0
+      y: 1.0
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+start:
+  header:
+    stamp:
+      sec: 0
+      nanosec: 0
+    frame_id: map
+  pose:
+    position:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+    orientation:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      w: 1.0
+planner_id: ''
+use_start: false
+
+Goal accepted with ID: 2bfdfa98e85d44528fa9ef3a42483d22
+
+Result:
+    path:
+  header:
+    stamp:
+      sec: 0
+      nanosec: 0
+    frame_id: ''
+  poses: []
+planning_time:
+  sec: 0
+  nanosec: 0
+
+Goal finished with status: ABORTED
+
+ros2 action send_goal /compute_path_to_pose nav2_msgs/action/ComputePathToPose \
+  "{start: {header: {frame_id: 'map'}, pose: {position: {x: 0.0, y: 0.0, z: 0.0}, orientation: {z: 0.0, w: 1.0}}}, \
+    goal: {header: {frame_id: 'map'}, pose: {position: {x: 1.0, y: 1.0, z: 0.0}, orientation: {z: 0.0, w: 1.0}}}}"
+    
+    eav@seav-desktop:~/Downloads/delete/ros2_ws$ ros2 launch my_nav2_pkg navigation_launch.py
+[INFO] [launch]: All log files can be found below /home/seav/.ros/log/2024-12-19-01-35-46-555567-seav-desktop-29419
+[INFO] [launch]: Default logging verbosity is set to INFO
+[ERROR] [launch]: Caught exception in launch (see debug for traceback): launch configuration 'map_subscribe_transient_local' does not exist
+DeclareLaunchArgument(
+    'map_subscribe_transient_local',
+    default_value='true',  # Default is true for transient local QoS
+    description='Whether to set the map subscriber QoS to transient local'),
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      map_subscribe_transient_local: True
+      plugins: ["static_layer", "inflation_layer"]
+      static_layer:
+        map_subscribe_transient_local: True
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      use_sim_time: True
+      global_frame: map
+      robot_base_frame: base_footprint
+      update_frequency: 1.0
+      publish_frequency: 1.0
+      resolution: 0.05
+      robot_radius: 0.22
+      track_unknown_space: true
+      map_subscribe_transient_local: True
+      plugins: ["static_layer", "inflation_layer"]
+
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_subscribe_transient_local: True
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        inflation_radius: 0.55
+        cost_scaling_factor: 3.0
+        
+        
+        
+        
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      use_sim_time: True
+      global_frame: odom
+      robot_base_frame: base_footprint
+      rolling_window: true
+      update_frequency: 5.0
+      publish_frequency: 2.0
+      resolution: 0.05
+      width: 3.0
+      height: 3.0
+      robot_radius: 0.22
+      plugins: ["obstacle_layer", "inflation_layer"]
+
+      # Obstacle Layer Configuration
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: True
+        max_obstacle_height: 2.0
+        origin_z: 0.0
+        z_resolution: 0.05
+        z_voxels: 16
+        observation_sources: scan
+        scan:
+          topic: /scan
+          data_type: "LaserScan"
+          clearing: True
+          marking: True
+          max_obstacle_height: 2.0
+
+      # Inflation Layer Configuration
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        inflation_radius: 0.55
+        cost_scaling_factor: 3.0
+
+
+[controller_server-1] [DEBUG] [1734569460.915183512] [pluginlib.ClassLoader]: XML file has no lookup name (i.e. magic name) for class nav2_costmap_2d::SpeedFilter, assuming lookup_name == real class name.
+[controller_server-1] [DEBUG] [1734569460.915213289] [pluginlib.ClassLoader]: XML file has no lookup name (i.e. magic name) for class nav2_costmap_2d::BinaryFilter, assuming lookup_name == real class name.
+[controller_server-1] [DEBUG] [1734569460.915246622] [pluginlib.ClassLoader]: Exiting determineAvailableClasses()...
+[controller_server-1] [DEBUG] [1734569460.915267899] [pluginlib.ClassLoader]: Finished constructring ClassLoader, base = nav2_costmap_2d::Layer, address = 0xaaaae229c788
+[controller_server-1] [INFO] [1734569460.915305250] [local_costmap.local_costmap]: Creating Costmap
+[controller_server-1] terminate called after throwing an instance of 'rclcpp::exceptions::InvalidParameterTypeException'
+[controller_server-1]   what():  parameter 'height' has invalid type: Wrong parameter type, parameter {height} is of type {integer}, setting it to {double} is not allowed.
+[lifecycle_manager-4] [INFO] [1734569461.448205308] [lifecycle_manager_navigation]: Starting managed nodes bringup...
+[lifecycle_manager-4] [INFO] [1734569461.450964517] [lifecycle_manager_navigation]: Configuring controller_server
+[ERROR] [controller_server-1]: process has died [pid 30676, exit code -6, cmd '/opt/ros/humble/lib/nav2_controller/controller_server --ros-args --log-level debug --ros-args --params-file /tmp/tmpforks4e8 -r /tf:=tf -r /tf_static:=tf_static -r /scan:=scan'].
+
+
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      use_sim_time: True
+      global_frame: odom
+      robot_base_frame: base_footprint
+      rolling_window: true
+      update_frequency: 5.0
+      publish_frequency: 2.0
+      resolution: 0.05
+      width: 3.0   # Explicitly set as a double
+      height: 3.0  # Explicitly set as a double
+      robot_radius: 0.22
+      plugins: ["obstacle_layer", "inflation_layer"]
+
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        observation_sources: scan
+        scan:
+          topic: /scan
+          data_type: "LaserScan"
+          marking: True
+          clearing: True
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        inflation_radius: 0.55
+        cost_scaling_factor: 3.0
+        
+        
+        
+        seav@seav-desktop:~/Downloads/delete/ros2_ws$ ros2 action list
+seav@seav-desktop:~/Downloads/delete/ros2_ws$ ros2 lifecycle set /planner_server activate
+Unknown transition requested, available ones are:
+- configure [1]
+- shutdown [5]
+seav@seav-desktop:~/Downloads/delete/ros2_ws$ ros2 lifecycle set /map_server configure
+Unknown transition requested, available ones are:
+- deactivate [4]
+- shutdown [7]
+seav@seav-desktop:~/Downloads/delete/ros2_ws$ ros2 lifecycle set /amcl configure
+Unknown transition requested, available ones are:
+- deactivate [4]
+- shutdown [7]
+seav@seav-desktop:~/Downloads/delete/ros2_ws$ ros2 lifecycle set /planner_server configure
+Transitioning successful
+seav@seav-desktop:~/Downloads/delete/ros2_ws$ ros2 lifecycle set /controller_server configure
+Transitioning failed
+seav@seav-desktop:~/Downloads/delete/ros2_ws$ ros2 lifecycle set /controller_server
+usage: ros2 lifecycle set [-h] [--spin-time SPIN_TIME] [-s] [--no-daemon] [--include-hidden-nodes] node_name transition
+ros2 lifecycle set: error: the following arguments are required: transition
+seav@seav-desktop:~/Downloads/delete/ros2_ws$ ros2 lifecycle set /controller_server --all
+usage: ros2 lifecycle set [-h] [--spin-time SPIN_TIME] [-s] [--no-daemon] [--include-hidden-nodes] node_name transition
+ros2 lifecycle set: error: the following arguments are required: transition
+seav@seav-desktop:~/Downloads/delete/ros2_ws$ ros2 lifecycle set /bt_navigator configure
+Transitioning successful
+seav@seav-desktop:~/Downloads/delete/ros2_ws$ ros2 lifecycle set /lifecycle_manager configure
+Node not found
+seav@seav-desktop:~/Downloads/delete/ros2_ws$ ros2 topic list
+/amcl/transition_event
+/amcl_pose
+/bond
+/bt_navigator/transition_event
+/camera/camera_info
+/camera/image_raw
+/clicked_point
+/clock
+/controller_server/transition_event
+/diagnostics
+/global_costmap/costmap
+/global_costmap/costmap_raw
+/global_costmap/costmap_updates
+/global_costmap/footprint
+/global_costmap/global_costmap/transition_event
+/global_costmap/published_footprint
+/goal_pose
+/imu/data
+/initialpose
+/joint_states
+/local_costmap/costmap
+/local_costmap/costmap_raw
+/local_costmap/costmap_updates
+/local_costmap/footprint
+/local_costmap/local_costmap/transition_event
+/local_costmap/published_footprint
+/map
+/map_metadata
+/map_server/transition_event
+/map_updates
+/odom
+/odometry/filtered
+/parameter_events
+/particle_cloud
+/plan
+/planner_server/transition_event
+/pose
+/robot_description
+/rosout
+/scan
+/set_pose
+/slam_toolbox/feedback
+/slam_toolbox/graph_visualization
+/slam_toolbox/scan_visualization
+/slam_toolbox/update
+/tf
+/tf_static
+seav@seav-desktop:~/Downloads/delete/ros2_ws$ 
+
