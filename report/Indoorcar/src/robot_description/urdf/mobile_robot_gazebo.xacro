@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <gazebo reference="base_link">
+        <material>Gazebo/Black</material>
+        <mu1 value="0.01"/>
+        <mu2 value="0.01"/>
+    </gazebo>
+
+    <gazebo reference="front_left_motor_link">
+        <material>Gazebo/Red</material>
+    </gazebo>
+    <gazebo reference="front_right_motor_link">
+        <material>Gazebo/Red</material>
+    </gazebo>
+    <gazebo reference="rear_left_motor_link">
+        <material>Gazebo/Red</material>
+    </gazebo>
+    <gazebo reference="rear_right_motor_link">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+
+    <gazebo reference="front_left_wheel_link">
+        <material>Gazebo/Grey</material>
+        <mu1 value="0.1"/>
+        <mu2 value="0.1"/>
+    </gazebo>
+    <gazebo reference="front_right_wheel_link">
+        <material>Gazebo/Grey</material>
+        <mu1 value="0.1"/>
+        <mu2 value="0.1"/>
+    </gazebo>
+    <gazebo reference="rear_left_wheel_link">
+        <material>Gazebo/Grey</material>
+        <mu1 value="0.1"/>
+        <mu2 value="0.1"/>
+    </gazebo>
+    <gazebo reference="rear_right_wheel_link">
+        <material>Gazebo/Grey</material>
+        <mu1 value="0.1"/>
+        <mu2 value="0.1"/>
+    </gazebo>   
+
+    <gazebo reference="lidar_link">
+        <material>Gazebo/Black</material>
+    </gazebo>   
+    <gazebo reference="base_footprint">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+
+
+   <gazebo>
+    <plugin name="tricycle_drive_controller" filename="libgazebo_ros_tricycle_drive.so">
+    <ros>
+      <namespace>/</namespace>
+    </ros>
+    <rear_wheel_joint>base_rear_left_wheel_joint</rear_wheel_joint>
+    <steering_joint>front_steering_joint</steering_joint>
+    <wheel_separation>${base_width}</wheel_separation>
+    <wheel_radius>${wheel_radius}</wheel_radius>
+
+    <publish_odom>true</publish_odom>
+    <publish_odom_tf>true</publish_odom_tf>
+    <odometry_frame>odom</odometry_frame>
+    <robot_base_frame>base_link</robot_base_frame>
+    </plugin>
+    </gazebo>
+
+
+</robot>

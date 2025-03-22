@@ -7,34 +7,47 @@
 
     <xacro:property name="scale_num" value="1.0" />
     <xacro:property name="scale" value="${scale_num} ${scale_num} ${scale_num}" />
+      <!-- Constants for robot dimensions -->
+    <xacro:property name="PI" value="3.1415926535897931"/>
+    <xacro:property name="base_mass" value="4.0" />
+    <xacro:property name="base_width" value="0.408" />
+    <xacro:property name="base_length" value="0.558" />
+    <xacro:property name="base_height" value="0.060" />
+    <xacro:property name="wheelbase" value="0.558" />
+    <xacro:property name="wheel_mass" value="0.34055" />
+    <xacro:property name="wheel_len" value="0.05" />
+    <xacro:property name="wheel_radius" value="0.1" />
 
-    <link name="base_footprint" />
 
-    <link name="base_link">
+
+    <link name="base_link" />
+
+    <link name="chassis_link">
         <visual>
             <geometry>
-                <mesh filename="package://robot_description/meshes/base_link.dae" 
-                    scale="${scale}"/>
+                <box size="0.3 0.2 0.01"/>
             </geometry>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 ${-pi/2}"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <material name="black"/>
         </visual>
         <xacro:base_inertia xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
         <collision>
             <geometry>
-                <mesh filename="package://robot_description/meshes/base_link.dae" 
-                    scale="${scale}"/>
+                <box size="0.3 0.2 0.01"/>
             </geometry>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 ${-pi/2}"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
         </collision>
     </link>
 
-    <joint name="base_joint" type="fixed">
-        <parent link="base_footprint"/>
-        <child link="base_link"/>
+    <joint name="chassis_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="chassis_link"/>
         <origin xyz="0.0 0.0 ${scale_num * 0.028}" rpy="0.0 0.0 0.0"/>
     </joint>
 
+
+   
+    
     <xacro:macro name="motor_link" params="prefix">
         <link name="${prefix}_motor_link">
             <visual>
@@ -56,20 +69,35 @@
         </link>
     </xacro:macro>
 
-    <xacro:motor_link prefix="left" />
-    <xacro:motor_link prefix="right" />
-
-    <joint name="base_right_motor_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="right_motor_link"/>
+    <xacro:motor_link prefix="front_left" />
+    <xacro:motor_link prefix="front_right" />
+    <xacro:motor_link prefix="rear_left" />
+    <xacro:motor_link prefix="rear_right" />
+    <!-- End Motor Links -->
+    <!-- Motor Joints -->
+    <joint name="base_front_right_motor_joint" type="fixed">
+        <parent link="chassis_link"/>
+        <child link="front_right_motor_link"/>
+        <origin xyz=" 0.0 ${-scale_num * 0.03348} ${scale_num*0.008}" rpy="0.0 0.0 ${-pi/2}"/>
+    </joint>
+    <joint name="base_front_left_motor_joint" type="fixed">
+        <parent link="chassis_link"/>
+        <child link="front_left_motor_link"/>
+        <origin xyz=" 0.0 ${scale_num * 0.03348} ${scale_num*0.008}" rpy=" 0.0  0.0 ${pi/2}"/>
+    </joint>
+    <joint name="base_rear_right_motor_joint" type="fixed">
+        <parent link="chassis_link"/>
+        <child link="rear_right_motor_link"/>
         <origin xyz=" 0.0 ${-scale_num * 0.03348} ${scale_num*0.008}" rpy="0.0 0.0 ${-pi/2}"/>
     </joint>
 
-        <joint name="base_left_motor_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="left_motor_link"/>
+
+        <joint name="base_rear_left_motor_joint" type="fixed">
+        <parent link="chassis_link"/>
+        <child link="rear_left_motor_link"/>
         <origin xyz=" 0.0 ${scale_num * 0.03348} ${scale_num*0.008}" rpy=" 0.0  0.0 ${pi/2}"/>
     </joint>
+<!-- End Motor Joints -->
 
     <xacro:macro name="wheel_link" params="prefix rotation">
         <link name="${prefix}_wheel_link">
@@ -93,22 +121,110 @@
     </xacro:macro>
 
 
-    <xacro:wheel_link prefix="right" rotation="${pi/2}"/>
-    <xacro:wheel_link prefix="left" rotation="${-pi/2}"/>
-
-    <joint name="left_motor_wheel_joint" type="continuous">
-        <parent link="left_motor_link"/>
-        <child link="left_wheel_link"/>
+    <!-- <xacro:wheel_link prefix="front_right" rotation="${pi/2}"/>
+    <xacro:wheel_link prefix="front_left" rotation="${-pi/2}"/> -->
+    <xacro:wheel_link prefix="rear_right" rotation="${pi/2}"/>
+    <xacro:wheel_link prefix="rear_left" rotation="${-pi/2}"/>
+    <!-- End Wheel Links -->
+    <!-- Wheel Joints -->
+    <!-- <joint name="base_front_right_wheel_joint" type="continuous">
+        <parent link="front_right_motor_link"/>
+        <child link="front_right_wheel_link"/>
         <origin xyz="${scale_num * 0.01992} 0.0 0.0" rpy="0.0 0.0 ${pi/2}"/>
         <axis xyz=" 0.0 -1 0.0"/>
     </joint>
-
-    <joint name="right_motor_wheel_joint" type="continuous">
-        <parent link="right_motor_link"/>
-        <child link="right_wheel_link"/>
+    <joint name="base_front_left_wheel_joint" type="continuous">
+        <parent link="front_left_motor_link"/>
+        <child link="front_left_wheel_link"/>
+        <origin xyz="${scale_num * 0.01992} 0.0 0.0" rpy="0 0 ${-pi/2}"/>
+        <axis xyz="0.0 -1.0 0.0"/>
+    </joint> -->
+    <joint name="base_rear_right_wheel_joint" type="continuous">
+        <parent link="rear_right_motor_link"/>
+        <child link="rear_right_wheel_link"/>
+        <origin xyz="${scale_num * 0.01992} 0.0 0.0" rpy="0.0 0.0 ${pi/2}"/>
+        <axis xyz=" 0.0 -1 0.0"/>
+    </joint>
+    <joint name="base_rear_left_wheel_joint" type="continuous">
+        <parent link="rear_left_motor_link"/>
+        <child link="rear_left_wheel_link"/>
         <origin xyz="${scale_num * 0.01992} 0.0 0.0" rpy="0 0 ${-pi/2}"/>
         <axis xyz="0.0 -1.0 0.0"/>
     </joint>
+    <!-- End Wheel Joints -->
+    <!-- Motor Links -->
+
+        <!-- Front Steering Link -->
+    <link name="front_steering_link" />
+
+    <!-- Revolute Steering Joint (rotates about Z axis) -->
+    <joint name="front_steering_joint" type="revolute">
+    <parent link="chassis_link"/>
+    <child link="front_steering_link"/>
+    <origin xyz="${wheelbase/2} 0 ${wheel_radius}" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.7854" upper="0.7854" effort="10.0" velocity="1.0"/>
+    </joint>
+
+    <!-- Steerable Front Wheel (rotates to roll after steering) -->
+    <link name="steered_front_wheel_link">
+    <visual>
+        <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_len}"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 ${PI/2} 0"/>
+        <material name="gray"/>
+    </visual>
+    </link>
+
+    <joint name="steered_front_wheel_joint" type="continuous">
+    <parent link="front_steering_link"/>
+    <child link="steered_front_wheel_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    </joint>
+
+    <joint name="rear_wheel_fixed_joint" type="fixed">
+    <parent link="rear_left_wheel_link"/>
+    <child link="rear_right_wheel_link"/>
+    <origin xyz="0.0 ${-base_width}" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Color Sensors -->
+  <link name="${prefix}front_color_sensor">
+    <inertial>
+      <origin xyz="${wheelbase} 0 ${base_height}" rpy="0 0 0"/>
+      <mass value="0.05"/>
+      <inertia
+        ixx="0.00005" ixy="0.0" ixz="0.0"
+        iyy="0.00005" iyz="0.0"
+        izz="0.00005"/>
+    </inertial>
+  </link>
+
+  <joint name="${prefix}front_color_sensor_joint" type="fixed">
+    <parent link="${prefix}chassis_link"/>
+    <child link="${prefix}front_color_sensor"/>
+    <origin xyz="${wheelbase} 0 ${base_height}" rpy="0 0 0"/>
+  </joint>
+
+  <link name="${prefix}rear_color_sensor">
+    <inertial>
+      <origin xyz="0 0 ${base_height}" rpy="0 0 0"/>
+      <mass value="0.05"/>
+      <inertia
+        ixx="0.00005" ixy="0.0" ixz="0.0"
+        iyy="0.00005" iyz="0.0"
+        izz="0.00005"/>
+    </inertial>
+  </link>
+
+  <joint name="${prefix}rear_color_sensor_joint" type="fixed">
+    <parent link="${prefix}chassis_link"/>
+    <child link="${prefix}rear_color_sensor"/>
+    <origin xyz="0 0 ${base_height}" rpy="0 0 0"/>
+  </joint>
+
 
 
 
