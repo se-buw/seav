@@ -1,6 +1,8 @@
 from setuptools import find_packages, setup
+import os
+from glob import glob
 
-package_name = 'my_robot_controller'
+package_name = 'static_tf_publisher'
 
 setup(
     name=package_name,
@@ -10,24 +12,17 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+	(os.path.join('share',package_name,'launch'), glob('launch/*.py')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='seav',
     maintainer_email='seav@todo.todo',
-
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "test_node = my_robot_controller.my_first_node:main",
-            "draw_circle = my_robot_controller.draw_circle:main",
-            "pose_subscriber = my_robot_controller.pose_subscriber:main"
-=======
-        'console_scripts': [ 
-        "serial_motor_controller = my_robot_controller.serial_motor_controller:main"
-
         ],
     },
 )

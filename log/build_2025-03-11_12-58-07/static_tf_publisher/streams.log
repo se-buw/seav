@@ -1,0 +1,35 @@
+[0.939s] Invoking command in '/home/seav/Downloads/ros2_ws/src/static_tf_publisher': PYTHONPATH=/home/seav/Downloads/ros2_ws/build/static_tf_publisher/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/seav/Downloads/ros2_ws/install/static_tf_publisher/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/static_tf_publisher build --build-base /home/seav/Downloads/ros2_ws/build/static_tf_publisher/build install --record /home/seav/Downloads/ros2_ws/build/static_tf_publisher/install.log --single-version-externally-managed install_data
+[1.156s] running egg_info
+[1.156s] creating ../../build/static_tf_publisher/static_tf_publisher.egg-info
+[1.156s] writing ../../build/static_tf_publisher/static_tf_publisher.egg-info/PKG-INFO
+[1.157s] writing dependency_links to ../../build/static_tf_publisher/static_tf_publisher.egg-info/dependency_links.txt
+[1.157s] writing entry points to ../../build/static_tf_publisher/static_tf_publisher.egg-info/entry_points.txt
+[1.157s] writing requirements to ../../build/static_tf_publisher/static_tf_publisher.egg-info/requires.txt
+[1.157s] writing top-level names to ../../build/static_tf_publisher/static_tf_publisher.egg-info/top_level.txt
+[1.157s] writing manifest file '../../build/static_tf_publisher/static_tf_publisher.egg-info/SOURCES.txt'
+[1.158s] reading manifest file '../../build/static_tf_publisher/static_tf_publisher.egg-info/SOURCES.txt'
+[1.159s] writing manifest file '../../build/static_tf_publisher/static_tf_publisher.egg-info/SOURCES.txt'
+[1.159s] running build
+[1.160s] running build_py
+[1.160s] creating /home/seav/Downloads/ros2_ws/build/static_tf_publisher/build
+[1.160s] creating /home/seav/Downloads/ros2_ws/build/static_tf_publisher/build/lib
+[1.160s] creating /home/seav/Downloads/ros2_ws/build/static_tf_publisher/build/lib/static_tf_publisher
+[1.160s] copying static_tf_publisher/__init__.py -> /home/seav/Downloads/ros2_ws/build/static_tf_publisher/build/lib/static_tf_publisher
+[1.160s] running install
+[1.160s] running install_lib
+[1.161s] creating /home/seav/Downloads/ros2_ws/install/static_tf_publisher/lib/python3.10/site-packages/static_tf_publisher
+[1.162s] copying /home/seav/Downloads/ros2_ws/build/static_tf_publisher/build/lib/static_tf_publisher/__init__.py -> /home/seav/Downloads/ros2_ws/install/static_tf_publisher/lib/python3.10/site-packages/static_tf_publisher
+[1.162s] byte-compiling /home/seav/Downloads/ros2_ws/install/static_tf_publisher/lib/python3.10/site-packages/static_tf_publisher/__init__.py to __init__.cpython-310.pyc
+[1.162s] running install_data
+[1.163s] creating /home/seav/Downloads/ros2_ws/install/static_tf_publisher/share/ament_index
+[1.163s] creating /home/seav/Downloads/ros2_ws/install/static_tf_publisher/share/ament_index/resource_index
+[1.163s] creating /home/seav/Downloads/ros2_ws/install/static_tf_publisher/share/ament_index/resource_index/packages
+[1.163s] copying resource/static_tf_publisher -> /home/seav/Downloads/ros2_ws/install/static_tf_publisher/share/ament_index/resource_index/packages
+[1.164s] copying package.xml -> /home/seav/Downloads/ros2_ws/install/static_tf_publisher/share/static_tf_publisher
+[1.164s] creating /home/seav/Downloads/ros2_ws/install/static_tf_publisher/share/static_tf_publisher/launch
+[1.164s] copying launch/static_tf_launch.py -> /home/seav/Downloads/ros2_ws/install/static_tf_publisher/share/static_tf_publisher/launch
+[1.164s] running install_egg_info
+[1.172s] Copying ../../build/static_tf_publisher/static_tf_publisher.egg-info to /home/seav/Downloads/ros2_ws/install/static_tf_publisher/lib/python3.10/site-packages/static_tf_publisher-0.0.0-py3.10.egg-info
+[1.172s] running install_scripts
+[1.201s] writing list of installed files to '/home/seav/Downloads/ros2_ws/build/static_tf_publisher/install.log'
+[1.247s] Invoked command in '/home/seav/Downloads/ros2_ws/src/static_tf_publisher' returned '0': PYTHONPATH=/home/seav/Downloads/ros2_ws/build/static_tf_publisher/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/seav/Downloads/ros2_ws/install/static_tf_publisher/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/static_tf_publisher build --build-base /home/seav/Downloads/ros2_ws/build/static_tf_publisher/build install --record /home/seav/Downloads/ros2_ws/build/static_tf_publisher/install.log --single-version-externally-managed install_data

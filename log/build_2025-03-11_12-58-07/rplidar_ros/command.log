@@ -1,0 +1,6 @@
+Invoking command in '/home/seav/Downloads/ros2_ws/build/rplidar_ros': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/seav/Downloads/ros2_ws/src/rplidar_ros -DCMAKE_INSTALL_PREFIX=/home/seav/Downloads/ros2_ws/install/rplidar_ros
+Invoked command in '/home/seav/Downloads/ros2_ws/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/seav/Downloads/ros2_ws/src/rplidar_ros -DCMAKE_INSTALL_PREFIX=/home/seav/Downloads/ros2_ws/install/rplidar_ros
+Invoking command in '/home/seav/Downloads/ros2_ws/build/rplidar_ros': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/seav/Downloads/ros2_ws/build/rplidar_ros -- -j8 -l8
+Invoked command in '/home/seav/Downloads/ros2_ws/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/seav/Downloads/ros2_ws/build/rplidar_ros -- -j8 -l8
+Invoking command in '/home/seav/Downloads/ros2_ws/build/rplidar_ros': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/seav/Downloads/ros2_ws/build/rplidar_ros
+Invoked command in '/home/seav/Downloads/ros2_ws/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/seav/Downloads/ros2_ws/build/rplidar_ros

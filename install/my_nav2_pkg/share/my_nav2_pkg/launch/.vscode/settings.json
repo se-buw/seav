@@ -1,0 +1,24 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/user/final_work/ros2_ws/ros2_ws/build/static_tf_publisher",
+        "/home/user/final_work/ros2_ws/ros2_ws/install/static_tf_publisher/lib/python3.10/site-packages",
+        "/home/user/final_work/ros2_ws/ros2_ws/build/seav_test_sensors",
+        "/home/user/final_work/ros2_ws/ros2_ws/install/seav_test_sensors/lib/python3.10/site-packages",
+        "/home/user/final_work/ros2_ws/ros2_ws/build/my_robot_controller",
+        "/home/user/final_work/ros2_ws/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages",
+        "/home/user/final_work/ros2_ws/ros2_ws/install/my_nav2_pkg/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/user/final_work/ros2_ws/ros2_ws/build/static_tf_publisher",
+        "/home/user/final_work/ros2_ws/ros2_ws/install/static_tf_publisher/lib/python3.10/site-packages",
+        "/home/user/final_work/ros2_ws/ros2_ws/build/seav_test_sensors",
+        "/home/user/final_work/ros2_ws/ros2_ws/install/seav_test_sensors/lib/python3.10/site-packages",
+        "/home/user/final_work/ros2_ws/ros2_ws/build/my_robot_controller",
+        "/home/user/final_work/ros2_ws/ros2_ws/install/my_robot_controller/lib/python3.10/site-packages",
+        "/home/user/final_work/ros2_ws/ros2_ws/install/my_nav2_pkg/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
