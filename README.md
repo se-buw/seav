@@ -1,5 +1,5 @@
 
-```markdown
+
 # SEAV ROS 2 Workspace
 
 Software Engineering for Autonomous Vehicles.
@@ -162,7 +162,7 @@ ros2 launch seav_simulation house_sim.launch.py
 
 ---
 
-## 📁 Folder Structure (simplified)
+## 📁 Folder Structure
 
 ```
 ros2_ws/
