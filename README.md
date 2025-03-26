@@ -22,9 +22,6 @@ Software Engineering for Autonomous Vehicles.
 | ![Layers and Workspace](docs/images/layers%20and%20workspace.drawio.png) | Stack diagram showing physical, simulation, and planning layers. |
 | ![Untitled Diagram](docs/images/Untitled%20Diagram(1).drawio) | Draw.io file for making the diagrams
 
-## 🗺️ TF Tree
-
-![TF Tree](docs/images/tf_tree.png)
 
 ---
 
