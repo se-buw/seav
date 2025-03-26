@@ -10,7 +10,7 @@ Software Engineering for Autonomous Vehicles.
 
 | Image | Description |
 |-------|-------------|
-| ![TF Tree](tf_tree.png) | **TF Tree** showing static transforms between `base_link`, `imu`, and `lidar`. |
+| ![TF Tree](docs/images/tf_tree.png) | **TF Tree** showing static transforms between `base_link`, `imu`, and `lidar`. |
 | ![Nav2 Nodes & Topics](nav2_nodes_topics.png) | Overview of important nodes and topics in the Nav2 stack. |
 | ![ROS 2 Communication Flow](ros2_communication_flow.png) | Shows how different ROS 2 nodes communicate through topics and services. |
 | ![SLAM System Overview](slam.drawio.png) | Visualizes SLAM pipeline used in the simulation world. |
