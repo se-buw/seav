@@ -10,18 +10,17 @@ Software Engineering for Autonomous Vehicles.
 
 | Image | Description |
 |-------|-------------|
-| ![TF Tree](docs/images/tf_tree.png) | **TF Tree** showing static transforms between `base_link`, `imu`, and `lidar`. |
 | ![Nav2 Nodes & Topics](docs/images/nav2_nodes_topics.png) | Overview of important nodes and topics in the Nav2 stack. |
-| ![ROS 2 Communication Flow](ros2_communication_flow.png) | Shows how different ROS 2 nodes communicate through topics and services. |
-| ![SLAM System Overview](slam.drawio.png) | Visualizes SLAM pipeline used in the simulation world. |
-| ![High-Level Architecture](high%20level%20architecture.png) | Block-level overview of how different packages work together. |
-| ![Circuit Diagram](Circuit%20Diagram.png) | Hardware setup for connecting the microcontroller and sensors. |
-| ![IMU Before Calibration](imu_before_calib.png) | Raw IMU data before applying calibration filters. |
-| ![AMCL Overview](amcl.drawio.png) | Adaptive Monte Carlo Localization node flow and topic structure. |
-| ![Slam Without IMU](slam_before_imu.jpeg) | SLAM performance before IMU fusion was introduced. |
-| ![Odom Publisher Diagram](odom_publisher.drawio.png) | Internal flow of the odometry calculation node. |
-| ![Layers and Workspace](layers%20and%20workspace.drawio.png) | Stack diagram showing physical, simulation, and planning layers. |
-| ![Untitled Diagram](Untitled%20Diagram(1).drawio) | Draw.io file for making the diagrams
+| ![ROS 2 Communication Flow](docs/images/ros2_communication_flow.png) | Shows how different ROS 2 nodes communicate through topics and services. |
+| ![SLAM System Overview](docs/images/slam.drawio.png) | Visualizes SLAM pipeline used in the simulation world. |
+| ![High-Level Architecture](docs/images/high%20level%20architecture.png) | Block-level overview of how different packages work together. |
+| ![Circuit Diagram](docs/images/Circuit%20Diagram.png) | Hardware setup for connecting the microcontroller and sensors. |
+| ![IMU Before Calibration](docs/images/imu_before_calib.png) | Raw IMU data before applying calibration filters. |
+| ![AMCL Overview](docs/images/amcl.drawio.png) | Adaptive Monte Carlo Localization node flow and topic structure. |
+| ![Slam Without IMU](docs/images/slam_before_imu.jpeg) | SLAM performance before IMU fusion was introduced. |
+| ![Odom Publisher Diagram](docs/images/odom_publisher.drawio.png) | Internal flow of the odometry calculation node. |
+| ![Layers and Workspace](docs/images/layers%20and%20workspace.drawio.png) | Stack diagram showing physical, simulation, and planning layers. |
+| ![Untitled Diagram](docs/images/Untitled%20Diagram(1).drawio) | Draw.io file for making the diagrams
 
 ## 🗺️ TF Tree
 
