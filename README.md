@@ -7,22 +7,18 @@ Software Engineering for Autonomous Vehicles.
 ---
 
 ## To-do
-- [ ] Refactor nodes into composable containers for better performance
+- [OK] Refactor nodes into composable containers for better performance
 - [ ] Add diagnostics and real-time status publishers
 - [ ] Set up automatic rosbag recording for every launch
 - [ ] Create analysis notebooks in `docs/notebooks/`
-- [ ] Integrate PlotJuggler or RQT for real-time visualization
+- [OK] Integrate PlotJuggler or RQT for real-time visualization
 - [ ] Add GitHub Actions for `colcon build` and `colcon test`
 - [ ] Enforce formatting with `ament_lint`, `black`, `flake8`
-- [ ] Create video demos and setup tutorials
+- [OK] Create video demos and setup tutorials
 
 ---
 
-Awesome! Here's the full **Markdown section** you can **copy-paste directly into your main `README.md`** — ideally after your `📁 Folder Structure` or `📊 TODO` section.
 
-This includes **all your diagrams, screenshots, and the video**, properly formatted and GitHub-compatible.
-
----
 
 ### 🧭 Diagrams, Screenshots, and Media
 
