@@ -15,7 +15,9 @@ Software Engineering for Autonomous Vehicles.
 - [ ] Add GitHub Actions for `colcon build` and `colcon test`
 - [ ] Enforce formatting with `ament_lint`, `black`, `flake8`
 - [OK] Create video demos and setup tutorials
-
+- [ ] Optimization of varibales in nav2 yaml
+- [ ] Further Adjustment based on the present vehicle
+- [ ] Adding video of waypoint
 ---
 
 
