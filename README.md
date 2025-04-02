@@ -219,6 +219,16 @@ Provides simulation environments and maps for testing and SLAM.
 
 ---
 
+### 8. **yolov8_ros**
+Contains nodes used for object recognition and distance estimation of the detected object  
+
+- **Nodes:** `yolov8_node`  
+- **Publishes:** `/object_distance`, `/camera/image_raw`
+- **Dependencies:** `rclpy`, `ultralytics`,`cv_bridge`,`sensor_msgs`,  `bookstore.world`
+- **Status:** ✅ Built
+
+---
+
 ## ▶️ How to Replicate the Workspace
 
 > This guide walks through bringing up your ROS 2-based robot in **three structured phases**: sensors, actuators, and navigation.
@@ -336,6 +346,10 @@ tmux new-window -t $SESSION -n nav2_local \
 tmux new-window -t $SESSION -n nav2_nav \
   "source $WORKSPACE/install/setup.bash && ros2 launch my_nav2_pkg navigation_launch.py"
 
+#Run program for object recognition
+tmux new-window -t $SESSION -n nav2_nav
+  "source $WORKSPACE/install/setup.bash && ros2 run yolov8_ros yolov8_node -- device 0"
+
 tmux attach -t $SESSION
 ```
 
@@ -343,6 +357,8 @@ tmux attach -t $SESSION
 
 - `ros2 topic echo /odom`
 - `ros2 topic echo /odom_filtered`
+- `ros2 topic echo /object_distance`
+- `ros2 topic echo /camera/image_raw`
 - Confirm that the following nodes are active:
   - `/amcl`
   - `/controller_server`
@@ -402,7 +418,8 @@ ros2_ws/
 │   ├── seav_slam/
 │   ├── seav_test_sensors/
 │   ├── static_tf_publisher/
-│   └── scripts/
+│   ├── scripts/
+│   └── yolov8_ros/
 ├── docs/
 │   ├── images/  ← TF tree, architecture, circuit diagrams, etc.
 │   ├── notebooks/
