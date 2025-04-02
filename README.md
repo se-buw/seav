@@ -412,10 +412,8 @@ ros2_ws/
 ├── build/
 ├── install/
 └── log/
-```
 
 ---
-Here's a clean, well-formatted **markdown version** of your `🐞 Troubleshooting & Debugging Tips` section — ready to paste into your `README.md` or any documentation file:
 
 ---
 
