@@ -91,9 +91,11 @@ These short videos highlight specific capabilities of the SEAV robot, such as lo
 [▶️ Watch Video](docs/images/real%20car%20drive%20controlling%20thorugh%20cmd_vel%20motor%20controller%20to%20arduino%20serial%20pro.mp4)  
 This clip demonstrates how high-level velocity commands (`cmd_vel`) from ROS 2 are translated into serial messages that control the motors via an Arduino interface. It validates end-to-end motor control from the ROS navigation stack.
 
-> 🎬 **Autonomous Navigation of Real Toy Car**  
+> 🎬 **Side by Side terminal , rviz and real toy car** and **Autonomous Navigation of Real Toy Car**  
+[▶️ Watch Video](docs/images/video%20for%20git%20-%20Made%20with%20Clipchamp.mp4)  
 [▶️ Watch Video](docs/images/shows%20real%20toy%20car%20running%20autonomously%20given%20initial%20and%20final%20points.mp4)  
 The robot receives a start and goal position and autonomously computes and follows a global path using SLAM, costmaps, and Nav2 planners. The video confirms real-world applicability of the simulated navigation pipeline.
+
 
 
 ---
