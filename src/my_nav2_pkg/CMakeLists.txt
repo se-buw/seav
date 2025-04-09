@@ -14,7 +14,7 @@ find_package(ament_cmake REQUIRED)
 find_package(ament_cmake REQUIRED)
 find_package(xacro REQUIRED)
 
-install(DIRECTORY launch config description worlds
+install(DIRECTORY launch config description
         DESTINATION share/${PROJECT_NAME})
 
 if(BUILD_TESTING)
