@@ -29,6 +29,7 @@ class OdomPublisher(Node):
         self.y = 0.0
         self.theta = 0.0
         self.last_distance = 0.0
+        self.delta_distance = 0.0
         self.last_time = self.get_clock().now()
 
         # Subscriptions
@@ -44,12 +45,12 @@ class OdomPublisher(Node):
     def distance_callback(self, msg):
         current_distance = msg.data
         if current_distance >= self.last_distance:
-            delta_distance = current_distance - self.last_distance
+            self.delta_distance = current_distance - self.last_distance
             self.last_distance = current_distance
 
             # Update x, y based on theta
-            self.x += delta_distance * math.cos(self.theta)
-            self.y += delta_distance * math.sin(self.theta)
+            self.x += self.delta_distance * math.cos(self.theta)
+            self.y += self.delta_distance * math.sin(self.theta)
 
     def imu_callback(self, msg):
         self.angular_velocity_z = msg.angular_velocity.z
@@ -78,7 +79,7 @@ class OdomPublisher(Node):
         odom_msg.pose.pose.orientation = quat
 
         # Velocity
-        odom_msg.twist.twist.linear.x = self.last_distance / dt if dt > 0 else 0.0
+        odom_msg.twist.twist.linear.x = self.delta_distance / dt if dt > 0 else 0.0 # 
         odom_msg.twist.twist.angular.z = self.angular_velocity_z
 
         self.odom_pub.publish(odom_msg)

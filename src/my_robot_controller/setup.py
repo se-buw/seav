@@ -20,11 +20,6 @@ setup(
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': [
-            "test_node = my_robot_controller.my_first_node:main",
-            "draw_circle = my_robot_controller.draw_circle:main",
-            "pose_subscriber = my_robot_controller.pose_subscriber:main"
-=======
         'console_scripts': [ 
         "serial_motor_controller = my_robot_controller.serial_motor_controller:main"
 

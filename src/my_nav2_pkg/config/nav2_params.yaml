@@ -168,7 +168,10 @@ controller_server:
       min_approach_linear_velocity: 0.05
       approach_velocity_scaling_dist: 0.4
       use_collision_detection: true
-      max_allowed_time_to_collision_up_to_carrot: 1.0
+      max_allowed_time_to_collision_up_to_carrot: 0.5
+      min_vel_x: 0.0      # Prevent any backward motion
+      max_vel_x: 0.3      # Optional: cap max speed if needed
+
 
       use_regulated_linear_velocity_scaling: true # Whether to use the regulated features for path curvature (e.g. slow on high curvature paths).
       use_cost_regulated_linear_velocity_scaling: true # Whether to use the regulated features for proximity to obstacles (e.g. slow in close proximity to obstacles).
@@ -214,7 +217,7 @@ local_costmap:
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         enabled: True
-        inflation_radius: 0.4
+        inflation_radius: 0.5
         cost_scaling_factor: 4.0
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
