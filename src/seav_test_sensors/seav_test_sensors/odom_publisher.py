@@ -97,7 +97,7 @@ class OdomPublisher(Node):
         self.tf_broadcaster.sendTransform(t)  # ✅ TF now has fresh data with limited history
 
         # ✅ **Force the TF Cache to Only Store Recent Data**
-        self.flush_old_tf_data()
+        # self.flush_old_tf_data() # Uncomment if you want to flush old TF data - Aditya
 
     def flush_old_tf_data(self):
         """ Forcibly remove any old TF data. """

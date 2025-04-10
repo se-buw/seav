@@ -7,16 +7,15 @@ Software Engineering for Autonomous Vehicles.
 ---
 
 ## To-do
-- [OK] Refactor nodes into composable containers for better performance
+- [done] Refactor nodes into composable containers for better performance
 - [ ] Add diagnostics and real-time status publishers
-- [OK] Set up automatic rosbag recording for every launch
-- [ ] Create analysis notebooks in `docs/notebooks/`
-- [OK] Integrate PlotJuggler or RQT for real-time visualization
+- [done] Set up automatic rosbag recording for every launch
+- [done] Create analysis notebooks in `docs/notebooks/`
+- [done] Integrate PlotJuggler or RQT for real-time visualization
 - [ ] Add GitHub Actions for `colcon build` and `colcon test`
 - [ ] Enforce formatting with `ament_lint`, `black`, `flake8`
-- [OK] Create video demos and setup tutorials
+- [done] Create video demos and setup tutorials
 - [ ] Optimization of varibales in nav2 yaml
-- [ ] Further Adjustment based on the present vehicle
 - [ ] Adding video of waypoint
 ---
 
